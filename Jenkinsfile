@@ -24,6 +24,7 @@ options {
             }
 	 }
   stage('Approval') {
+	  when { branch 'master' }
             input {
                 message "Can we Proceed?"
                 ok "Yes"
