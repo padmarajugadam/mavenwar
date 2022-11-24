@@ -1,25 +1,18 @@
 pipeline {
  agent any
 	tools {
-        maven 'maven' 
+        maven 'mzven' 
     }
 	 stages {
-    stage('Analysis') {
+    stage('build') {
 	 steps {
-              withSonarQubeEnv('sonarcloud') {
-                sh 'mvn  sonar:sonar'
-              }
-              echo "Analysis going"
+             echo "build started" 
+                sh 'mvn  clean install'
+              
+              echo "build completed"
             }
 	 }
-	  stage("Quality Gate") {
-            steps {
-              timeout(time: 5, unit: 'MINUTES') {
-                waitForQualityGate abortPipeline: true
-              }
-              echo "quality passed"
-            }
-          }
+
 }
 }
     
