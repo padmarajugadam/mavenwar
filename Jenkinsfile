@@ -25,6 +25,7 @@ options {
 	 }
   stage('Approval') {
 	  when { branch 'master' }
+	  steps {
             input {
                 message "Can we Proceed?"
                 ok "Yes"
@@ -36,6 +37,7 @@ options {
             steps {
                 echo "${PERSON}, is proceeding..."
             }
+	  }
         }
       stage('deployment') { 
 	 steps {
