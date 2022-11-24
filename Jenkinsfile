@@ -20,6 +20,19 @@ pipeline {
               echo "build completed"
             }
 	 }
+  stage('Approval') {
+            input {
+                message "Can we Proceed?"
+                ok "Yes"
+                submitter "Raju"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'DigiralVarys', description: 'Member')
+                }
+            }
+            steps {
+                echo "${PERSON}, is proceeding..."
+            }
+        }
       stage('deployment') { 
 	 steps {
              echo "we will leran deployment" 
