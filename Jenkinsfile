@@ -26,5 +26,11 @@ pipeline {
             
             }
 	 }
+		 stage('post') { 
+	 steps {
+             echo "post analysis" 
+            
+            }
+	 }
 }
 }
