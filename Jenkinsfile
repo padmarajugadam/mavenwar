@@ -20,6 +20,11 @@ pipeline {
               echo "build completed"
             }
 	 }
-
+      stage('deployment') { 
+	 steps {
+             echo "we will leran deployment" 
+            
+            }
+	 }
 }
 }
