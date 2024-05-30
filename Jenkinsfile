@@ -9,7 +9,7 @@ pipeline {
               withSonarQubeEnv('sonarcloud') {
                 sh 'mvn  sonar:sonar'
               }
-              echo "Analysis going"
+              echo "sonar analysis going "
             }
 	 }
 	  stage("Quality Gate") {
